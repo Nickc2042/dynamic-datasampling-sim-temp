@@ -57,3 +57,25 @@ class environment:
                 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
             ]
         )
+
+
+def GenerateDataFromTime(times, Tmax):
+    rows, cols = times.shape
+    data = []
+    counter = 0
+
+    for ii in np.arange(rows):
+        currenttime = times[ii, :]
+        data = np.append(
+            data,
+            np.append(
+                np.zeros(currenttime[0] - counter),
+                np.ones(currenttime[1] - currenttime[0]),
+            ),
+        )
+        counter = currenttime[1]
+
+    if data.size < Tmax:
+        data = np.append(data, np.zeros(Tmax - data.size))
+
+    return data
