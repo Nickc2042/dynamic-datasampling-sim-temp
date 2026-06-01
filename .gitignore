@@ -4,3 +4,4 @@ __pycache__/
 .env
 .DS_Store
 .ipynb_checkpoints/
+BUG_FIXES.md # Remove this line at the end to show documentation of BUG_FIXES.md in the repository
